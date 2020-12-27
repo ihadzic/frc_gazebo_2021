@@ -265,3 +265,25 @@ the general process. You will need to know on which topic a specific
 motor controller in your program will send information and how to specify in
 the SDF file which topic in a plugin will affect which joint. This specification
 in the SDF file effectively simulates the wiring of your robot.
+
+## Gazebo and ROS
+
+As you read the documentation and forums about Gazebo (which you should
+do), you will often encounter the mention of ROS (Robot Operating System).
+This is because Gazebo is often used as a simulator for ROS-based robots.
+
+ROS is a very powerful framework for writing robot software. ROS does the
+similar thing in its own framework to what WPILib does in FRC. So
+WPILib-based code is not meant
+to be used with ROS. This can be done with some additional programming which
+is outside the scope of this tutorial. In this tutorial we assume that we
+are not using ROS.
+
+While Gazebo is often used with ROS (and both tools are developed
+and maintained by the same organization), this is not a requirement.
+Gazebo is a stand-alone and independent simulator that does not require
+ROS. Unless your FRC code uses ROS for some other reason, we will not be
+using it as a Gazebo component. If you read any text about "ROS topics", do
+not be confused. ROS has its own communication system that is also called
+"topics". Also some Gazebo plugins are meant for use with ROS. These won't
+work in our non-ROS simulation of the FRC code.
