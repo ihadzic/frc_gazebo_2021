@@ -366,3 +366,30 @@ returns the full path to your `FRC` directory, then it's all good.
 All scripts used by this tutorial will refer to this environment variable,
 so make sure it is set correctly. If you move your `FRC` directory somewhere
 else, you will have to change the value of the variable.
+
+Next, clone the repository that contains this tutorial. Type this:
+
+```
+git clone https://github.com/ihadzic/frc_gazebo_2021.git $FRC_ROOT/frc_gazebo_2021
+```
+
+You should see the new directory called `frc_gazebo_2021` under your `FRC`
+directory. Up until this point, you have probably been reading these
+instructions directly from Github. Now that you have cloned the tutorial
+repository you can find this exact file under
+`$FRC_ROOT/frc_gazebo_2021/doc/tutorial.md`.
+
+## One-time setup
+
+At this time you should have the directory for your FRC work set up
+and your `$FRC_ROOT` environment variable should point to it. Under your
+`$FRC_ROOT` directory, there should be the `frc_gazebo_2021` directory
+which is a clone of this repository. Please verify that everything
+is correct before proceeding because we are about to run a script that
+will populate your FRC directory with the rest of the stuff that you will
+need. If you have not set things up correctly so far, script may end up
+putting stuff where you don't want it. If you are ready, proceed. Type:
+
+```
+$FRC_ROOT/scripts/init_workspace
+```
