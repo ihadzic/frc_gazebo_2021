@@ -287,3 +287,43 @@ using it as a Gazebo component. If you read any text about "ROS topics", do
 not be confused. ROS has its own communication system that is also called
 "topics". Also some Gazebo plugins are meant for use with ROS. These won't
 work in our non-ROS simulation of the FRC code.
+
+# Simulator Setup
+
+Now that you understand how the simulation works, it is time to try it
+out in practice. We will walk through the one-time setup and regular
+usage.
+
+## General WPILib and VS Code setup
+
+First, you should make sure that you have a working environment for FRC
+code development, which includes VSCode, WPILib, and WPILib extensions
+for VSCode. If you have done development for FRC you probably already
+have everything set up. Note that to use Gazebo, you will need a Linux
+machine (instructions in this tutorial are based on Ubuntu 18.04, although
+other distributions should work as well with some differences). So if your
+development environment was based on Windows, you should repeat the
+[setup for a Linux machine](https://docs.wpilib.org/en/latest/docs/zero-to-robot/step-2/wpilib-setup.html). After the installation verify that the
+tools are working by creating a simple application and compiling it, you
+should also try to run the WPILib integrated simulator by following
+the [WPILib simulation instructions](https://docs.wpilib.org/en/latest/docs/software/wpilib-tools/robot-simulation/index.html)
+
+## Gazebo Installation
+
+Next, you must install Gazebo. This tutorial is based on Gazebo 9, so this
+should be your preferred version. Newer versions of Gazebo should work
+too, but your friendly author has not verified it. If you happen to be
+a ROS user (outside the scope of this tutorial) and have ROS already
+installed, then you probably have Gazebo 9 installed as well, so you do
+not need to do anything. If you are installing Gazebo on a Linux
+machine without ROS, then follow the instructions available on
+[Gazebo web site](http://gazebosim.org/).
+
+To verify that everything is working, you can start Gazebo by typing
+`gazebo` in your shell. The Gazebo window will open and show you an
+empty world. Also verify that the public models library is available
+(you must be connected to Internet). Click on the "Insert" tab in the left
+section of the window and look for the `http://gazebosim.org/models` section.
+Click on it to expand it and you will see a list of models. You can click on
+any model and drop it in the world. If you scroll down you will find a few
+FRC models including the famous trash can from 2015 game.
