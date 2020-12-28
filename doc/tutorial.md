@@ -327,3 +327,42 @@ section of the window and look for the `http://gazebosim.org/models` section.
 Click on it to expand it and you will see a list of models. You can click on
 any model and drop it in the world. If you scroll down you will find a few
 FRC models including the famous trash can from 2015 game.
+
+## Directory for your FRC Work
+
+To make running the simulation easier you should organize your directories
+in the way that is consistent with the assumptions made by this tutorial.
+While everything can be made to work regardless of where you
+place the files, if you follow the same directory structure as described
+here, then all commands and scripts that we later refer to will just work.
+If you follow your own convention, then you are on your own in
+adjusting the scripts and environment variables.
+
+The first convention that we will establish is that we will keep all
+files under a directory that is pointed by $FRC_ROOT environment variable.
+So first create the directory (it can be right under the top of your
+home directory) for all your FRC stuff. Type this:
+
+```
+cd ~
+mkdir FRC
+```
+
+Next use your favorite editor, open the file `.bashrc` that resides
+under the top of your home directory. Add this line to it:
+
+```
+export FRC_ROOT=~/FRC
+```
+
+Now close the shell and open the new one and type:
+
+```
+echo $FRC_ROOT
+```
+
+If you get nothing in response, then you made a mistake somewhere. If it
+returns the full path to your `FRC` directory, then it's all good.
+All scripts used by this tutorial will refer to this environment variable,
+so make sure it is set correctly. If you move your `FRC` directory somewhere
+else, you will have to change the value of the variable.
