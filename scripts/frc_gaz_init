@@ -22,3 +22,9 @@ if [ $? -ne 0 ]; then
     echo "ERROR: failed to clone allspilib repository. Please check your Internet connection and make sure the wpilibsuite/allwpilib.git still exists on Github. Aborting!"
     exit 1
 fi
+
+$FRC_ROOT/frc_gazebo_2021/scripts/frc_gaz_build
+if [ $? -ne 0 ]; then
+    echo "ERROR: failed to build WPILib, please debug it"
+    exit 1
+fi
