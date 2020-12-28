@@ -353,6 +353,7 @@ under the top of your home directory. Add this line to it:
 
 ```
 export FRC_ROOT=~/FRC
+export PATH=$PATH:$FRC_ROOT/frc_gazebo_2021/scripts
 ```
 
 Now close the shell and open the new one and type:
@@ -391,5 +392,10 @@ need. If you have not set things up correctly so far, script may end up
 putting stuff where you don't want it. If you are ready, proceed. Type:
 
 ```
-$FRC_ROOT/scripts/init_workspace
+frc_gaz_init
 ```
+
+If you would like to understand how the script works, you can find it under
+`$FRC_ROOT/frc_gazebo_2021/scripts`. We will briefly explain what it does,
+so you don't have to look into the script right away, but for your own
+learning you should eventually do it.
