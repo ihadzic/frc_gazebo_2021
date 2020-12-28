@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [ -z $FRC_ROOT ]; then
+    echo "FRC_ROOT environment variable not set, cowardly refusing to proceeed"
+    exit 1
+fi
+
+rm -rf $FRC_ROOT/libs
+rm -rf $FRC_ROOT/sim

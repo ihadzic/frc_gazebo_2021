@@ -1,0 +1,23 @@
+#!/bin/bash
+
+function create_dir() {
+    if [ -d $1 ]; then
+        echo "ERROR: $1 directory already exists (maybe you already ran this script). Aborting!"
+        exit 1
+    fi
+    mkdir -p $1
+}
+
+if [ -z $FRC_ROOT ]; then
+    echo "ERROR: FRC_ROOT environment variable not set. Please set it before running this script!"
+    exit 1
+fi
+
+create_dir $FRC_ROOT/libs
+create_dir $FRC_ROOT/sim/plugins
+
+git clone https://github.com/wpilibsuite/allwpilib.git $FRC_ROOT/libs/allwpilib
+if [ $? -ne 0 ]; then
+    echo "ERROR: failed to clone allspilib repository. Please check your Internet connection and make sure the wpilibsuite/allwpilib.git still exists on Github. Aborting!"
+    exit 1
+fi
