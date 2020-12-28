@@ -1,0 +1,4 @@
+#!/bin/bash
+export GAZEBO_PLUGIN_PATH=$FRC_ROOT/sim/plugins
+export GAZEBO_MODEL_PATH=$FRC_ROOT/sim/models
+gazebo
