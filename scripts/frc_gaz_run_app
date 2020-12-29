@@ -14,6 +14,13 @@ if [ -z "$project_path" ]; then
     exit 1
 fi
 
+echo "building project $project_name"
+$FRC_ROOT/frc_gazebo_2021/scripts/frc_gaz_build_app $project_name
+if [ $? -ne 0 ]; then
+   echo "ERROR: failed to build the project (bug?)"
+   exit 1
+fi
+
 sim_gui_lib=$(find $project_path -name libhalsim_guid.so)
 if [ -z "$sim_gui_lib" ]; then
     echo "ERROR: cannot find HAL GUI extension, is it built?"
