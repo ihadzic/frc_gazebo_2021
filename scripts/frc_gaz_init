@@ -14,9 +14,10 @@ if [ -z $FRC_ROOT ]; then
 fi
 
 create_dir $FRC_ROOT/libs
-create_dir $FRC_ROOT/sim/plugins
 create_dir $FRC_ROOT/projects
+create_dir $FRC_ROOT/sim/plugins
 create_dir $FRC_ROOT/sim/models
+create_dir $FRC_ROOT/sim/worlds
 
 git clone https://github.com/wpilibsuite/allwpilib.git $FRC_ROOT/libs/allwpilib
 if [ $? -ne 0 ]; then
