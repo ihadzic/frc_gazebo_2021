@@ -294,7 +294,7 @@ Now that you understand how the simulation works, it is time to try it
 out in practice. We will walk through the one-time setup and regular
 usage.
 
-## General WPILib and VS Code setup
+## General WPILib and VSCode setup
 
 First, you should make sure that you have a working environment for FRC
 code development, which includes VSCode, WPILib, and WPILib extensions
@@ -399,3 +399,68 @@ If you would like to understand how the script works, you can find it under
 `$FRC_ROOT/frc_gazebo_2021/scripts`. We will briefly explain what it does,
 so you don't have to look into the script right away, but for your own
 learning you should eventually do it.
+
+The script will clone the [WPILib](https://github.com/wpilibsuite/allwpilib)
+library and build it with Gazebo support included. The built library
+and its source code will be under `$FRC_ROOT/libs`. This is necessary
+because by default Gazebo plugins and Gazebo HAL is not available in
+WPILib. From the built library, we will only use Gazebo plugins and
+HAL extensions, but our user code will use the "stock" version of WPILib.
+This is, strictly-speaking not the most correct way to set up your
+development environment (because version mismatches may break things), but
+so far it has worked and it makes things simpler than if we decided to do
+things 100%-right and build everything from the source.
+
+After building Gazebo plugins, the script will copy them all under
+`$FRC_ROOT/sim/plugins` and this is the area where Gazebo will look
+for plugins and if you write your own plugins, you should put your own
+`.so` files there. The script that starts up Gazebo (explained later)
+will setup the tool to look for plugins under `$FRC_ROOT/sim/plugins`
+directory.
+
+The initialization script will also clone a publicly available
+[EKIPS robot model](https://github.com/PeterMitrano/EKIPS_model.git),
+which was used as an example in old FRCSim project. The model will be
+placed under `$FRC_ROOT/sim/models`. This is also an area where you
+should place your own models as you develop them. We will revisit
+this subject later when we talk about writing custom models and
+plugins. Additional out-of-the-box models that you can use for your
+own exercises are available in this repository under `models` directory
+(`$FRC_ROOT/frc_gazebo_2021/models` directory when cloned). Gazebo will
+look for models at these two places.
+
+Finally, the initialization script will create an empty directory under
+`$FRC_ROOT/projects`. This is where you should put your own FRC project
+code. The script that starts up the robot simulation (explained later)
+will search for projects there.
+
+As it will become clear later, all examples and instructions used
+in this tutorial are designed to run from command line (shell). You
+can (and should) still use VSCode for your day-to-day development
+and to interact with the real robot, but when running the simulation
+you should use scripts launched from the command line. The reason
+we do it this way is that the VSCode extensions for running Gazebo
+simulations do not exist yet. Once we develop them, you will be able
+to launch Gazebo simulation from VSCode environment.
+
+Scripts provided by this tutorial are independent of VSCode.
+To develop simulation models and code for your robot in simulation
+environment, all you need is your favorite editor and the shell.
+The editor may be VSCode but it does not have to be.
+You can launch everything from command line either in a separate shell
+or you can open the shell in VSCode and run the scripts.
+
+If you prefer to use an environment other than VSCode, you can.
+If you like VSCode you can still use it.
+
+# Running the Simulation
+
+TODO
+
+# Model Development
+
+TODO
+
+# Robot Code Development
+
+TODO
