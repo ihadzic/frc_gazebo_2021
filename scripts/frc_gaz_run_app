@@ -1,0 +1,27 @@
+#!/bin/bash
+if [ -z "$1" ]; then
+    echo "ERROR: you must specify the project name"
+    exit 1
+fi
+project_name=$1
+
+project_path=$(find $FRC_ROOT/projects -name $project_name)
+if [ -z "$project_path" ]; then
+    project_path=$(find $FRC_ROOT/frc_gazebo_2021/src -name $project_name)
+fi
+if [ -z "$project_path" ]; then
+    echo "ERROR: project not found"
+    exit 1
+fi
+
+sim_gui_lib=$(find $project_path -name libhalsim_guid.so)
+if [ -z "$sim_gui_lib" ]; then
+    echo "ERROR: cannot find HAL GUI extension, is it built?"
+    exit 1
+fi
+
+export LD_LIBRARY_PATH=$project_path/build/install/frcUserProgram/linuxx86-64/debug/lib
+export HALSIM_EXTENSIONS=$FRC_ROOT/allwpilib/simulation/halsim_gazebo/build/libs/halsim_gazebo/shared/linuxx86-64/debug/libhalsim_gazebod.so:$sim_gui_lib
+export DYLD_FALLBACK_LIBRARY_PATH=$LD_LIBRARY_PATH
+echo "using HAL simulation extensions: $HALSIM_EXTENSIONS"
+$project_path/build/install/frcUserProgram/linuxx86-64/debug/lib/frcUserProgram
