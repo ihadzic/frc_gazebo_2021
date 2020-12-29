@@ -455,7 +455,44 @@ If you like VSCode you can still use it.
 
 # Running the Simulation
 
-TODO
+Now that you have successfully created the environment for your simulation
+work, let us go through an example and introduce a couple of useful scripts
+that you will use for your daily work.
+
+First look at the directory `$FRC_ROOT/frc_gazebo_2021/src/simple_4wd`.
+This directory contains a simple example robot. It was created from
+the [Getting Started example robot](https://docs.wpilib.org/en/stable/docs/getting-started/running-a-benchtop/creating-benchtop-test-program-cpp-java.html)
+available from WPILlib VSCode extensions. The design was then modified
+to handle four-wheel differential drive. In autonomous mode this robot will
+move forward for 20 seconds and then stop. In teleoperated mode this
+robot can be driven with a single-stick joystick. The project name
+is `simple_4wd`, which stands for "Simple 4-Wheel Drive".
+
+First compile the code for simulation. Type:
+
+```
+frc_gaz_build_app simple_4wd
+```
+
+The script will do the "magic" for you and you can treat it that way,
+but eventually, you should look inside the script and understand what it
+is doing. In short, the script takes the project name for an argument
+finds the project and runs its build task for simulation using Gradle tool.
+The code that builds is the same that you would get if you were to start up
+the simulation using the appropriate VSCode extension. However, that
+task would not support Gazebo simulation so you cannot use it here.
+You must use the scripts instead.
+
+When you run the script with your own projects, you should replace `simple_4wd`
+with the name of your project. The script will look for the project
+at two locations. First location is `$FRC_ROOT/projects`, which is where
+you should put your own projects. The second location is
+`$FRC_ROOT/frc_gazebo_2021/src`, which
+is where the examples that come with this tutorial reside. If you have
+a project at the first location that carries the same name as one the
+tutorial examples, the first location will take precedence.
+
+You are now ready to run the simulation .... TODO ....
 
 # Model Development
 
