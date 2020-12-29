@@ -28,7 +28,7 @@ if [ -z "$sim_gui_lib" ]; then
 fi
 
 export LD_LIBRARY_PATH=$project_path/build/install/frcUserProgram/linuxx86-64/debug/lib
-export HALSIM_EXTENSIONS=$FRC_ROOT/allwpilib/simulation/halsim_gazebo/build/libs/halsim_gazebo/shared/linuxx86-64/debug/libhalsim_gazebod.so:$sim_gui_lib
+export HALSIM_EXTENSIONS=$FRC_ROOT/libs/allwpilib/simulation/halsim_gazebo/build/libs/halsim_gazebo/shared/linuxx86-64/debug/libhalsim_gazebod.so:$sim_gui_lib
 export DYLD_FALLBACK_LIBRARY_PATH=$LD_LIBRARY_PATH
 echo "using HAL simulation extensions: $HALSIM_EXTENSIONS"
 $project_path/build/install/frcUserProgram/linuxx86-64/debug/lib/frcUserProgram
