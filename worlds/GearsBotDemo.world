@@ -19,23 +19,19 @@
       <pose>0.2011 -0.5111 0.2275 0 0 0</pose>
     </include>
     <include>
-      <uri>model://Box</uri>
-      <pose>0 0.7 0.05 0 0 0</pose>
-    </include>
-    <include>
-      <uri>model://SodaCan</uri>
+      <uri>model://coke_can</uri>
       <pose>0 0.038 0.08 0 0 0</pose>
     </include>
     <include>
-      <uri>model://SodaCan</uri>
+      <uri>model://coke_can</uri>
       <pose>0 -1.0 -0.08 0 0 0</pose>
     </include>
     <include>
-      <uri>model://SodaCan</uri>
+      <uri>model://coke_can</uri>
       <pose>0.1 -1.1 -0.08 0 0 0</pose>
     </include>
     <include>
-      <uri>model://SodaCan</uri>
+      <uri>model://coke_can</uri>
       <pose>-0.1 -1.1 -0.08 0 0 0</pose>
     </include>
   </world>
