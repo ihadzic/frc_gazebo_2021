@@ -15,7 +15,8 @@
 class Robot : public frc::TimedRobot {
  public:
   Robot() {
-    m_robotDrive.SetExpiration(0.1);
+    m_robotDrive_front.SetExpiration(1.0);
+    m_robotDrive_back.SetExpiration(1.0);
     m_timer.Start();
   }
 
@@ -26,12 +27,14 @@ class Robot : public frc::TimedRobot {
 
   void AutonomousPeriodic() override {
     // Drive for 2 seconds
-    if (m_timer.Get() < 2.0) {
+    if (m_timer.Get() < 20.0) {
       // Drive forwards half speed
-      m_robotDrive.ArcadeDrive(-0.5, 0.0);
+      m_robotDrive_front.ArcadeDrive(-0.5, 0.0);
+      m_robotDrive_back.ArcadeDrive(-0.5, 0.0);
     } else {
       // Stop robot
-      m_robotDrive.ArcadeDrive(0.0, 0.0);
+      m_robotDrive_front.ArcadeDrive(0.0, 0.0);
+      m_robotDrive_back.ArcadeDrive(0.0, 0.0);
     }
   }
 
@@ -39,16 +42,22 @@ class Robot : public frc::TimedRobot {
 
   void TeleopPeriodic() override {
     // Drive with arcade style (use right stick)
-    m_robotDrive.ArcadeDrive(m_stick.GetY(), m_stick.GetX());
+    double joyY = m_stick.GetY();
+    double joyX = m_stick.GetX();
+    m_robotDrive_front.ArcadeDrive(joyY, joyX);
+    m_robotDrive_back.ArcadeDrive(joyY, joyX);
   }
 
   void TestPeriodic() override {}
 
  private:
   // Robot drive system
-  frc::PWMVictorSPX m_left{0};
-  frc::PWMVictorSPX m_right{1};
-  frc::DifferentialDrive m_robotDrive{m_left, m_right};
+  frc::PWMVictorSPX m_left_front{1};
+  frc::PWMVictorSPX m_right_front{3};
+  frc::PWMVictorSPX m_left_back{2};
+  frc::PWMVictorSPX m_right_back{4};
+  frc::DifferentialDrive m_robotDrive_front{m_left_front, m_right_front};
+  frc::DifferentialDrive m_robotDrive_back{m_left_back, m_right_back};
 
   frc::Joystick m_stick{0};
   frc::LiveWindow& m_lw = *frc::LiveWindow::GetInstance();
