@@ -492,7 +492,48 @@ is where the examples that come with this tutorial reside. If you have
 a project at the first location that carries the same name as one the
 tutorial examples, the first location will take precedence.
 
-You are now ready to run the simulation .... TODO ....
+You are now ready to run the simulation. Start Gazebo first by
+typing:
+
+```
+frc_gaz_run_gazebo simple
+```
+
+This will start up Gazebo and load the world called `simple.world`,
+located in `$FRC_ROOT/frc_gazebo_2021/worlds` directory. The robot
+will be placed on an empty plane at the coordinate system origin.
+You can examine the
+world file to see what the world looks like (it should be straight
+forward to follow and understand how the robot is placed). Also, you
+should eventually examine the `frc_gaz_run_gazebo` script and understand
+how it works. In short, it looks for models at two places
+`$FRC_ROOT/frc_gazebo_2021/models` and `$FRC_ROOT/sim/models`.
+
+The first directory is meant for examples that come with this
+repository, while the second is meant for your own models (that you
+would revision control separately) and third-party models. Likewise,
+worlds are searched at two places, `$FRC_ROOT/sim/worlds` and
+`$FRC_ROOT/frc_gazebo_2021/worlds`, where the first location is for your
+own worlds and the second is for examples associated with this repository.
+
+There is also an option to not specify the world when running
+`frc_gaz_run_gazebo` in which case an empty world is loaded.
+
+Next, you must run the code you are simulating. Type:
+
+```
+frc_gaz_run_app simple_4wd
+```
+
+The same rules apply here as for `frc_gaz_build_app` script. The script
+will look for the project and start it up with HAL simulation extensions
+for GUI simulation and Gazebo loaded. The WPILib simulation GUI will
+open. The robot is ready to run, but disabled, just like in at the start
+of the game. Click "Autonomous" button to enable the autonomous
+operation and watch the robot move. Then disable the robot and
+try the teleoperated mode. Note that you must have the joystick
+attached before you start the simulation and you must associate
+the joystick in the GUI with Joystick 0.
 
 # Model Development
 
