@@ -1,4 +1,13 @@
 #!/bin/bash
 export GAZEBO_PLUGIN_PATH=$FRC_ROOT/sim/plugins
 export GAZEBO_MODEL_PATH=$FRC_ROOT/sim/models:$FRC_ROOT/frc_gazebo_2021/models
-gazebo
+if [ -z "$1" ]; then
+    gazebo
+else
+    world_name=$(echo "$1" | sed 's/.world//g')
+    world=$(find $FRC_ROOT/frc_gazebo_2021/worlds -name "$world_name.world")
+    if [ -z "$world" ]; then
+        echo "WARNING: world not found, loading empty"
+    fi
+    gazebo $world
+fi
