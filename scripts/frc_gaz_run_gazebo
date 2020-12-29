@@ -5,9 +5,12 @@ if [ -z "$1" ]; then
     gazebo
 else
     world_name=$(echo "$1" | sed 's/.world//g')
-    world=$(find $FRC_ROOT/frc_gazebo_2021/worlds -name "$world_name.world")
+    world=$(find $FRC_ROOT/sim/worlds -name "$world_name.world")
     if [ -z "$world" ]; then
-        echo "WARNING: world not found, loading empty"
+        world=$(find $FRC_ROOT/frc_gazebo_2021/worlds -name "$world_name.world")
+        if [ -z "$world" ]; then
+            echo "WARNING: world not found, loading empty"
+        fi
     fi
     gazebo $world
 fi
