@@ -301,7 +301,8 @@ code development, which includes VSCode, WPILib, and WPILib extensions
 for VSCode. If you have done development for FRC you probably already
 have everything set up. Note that to use Gazebo, you will need a Linux
 machine (instructions in this tutorial are based on Ubuntu 18.04, although
-other distributions should work as well with some differences). So if your
+other distributions should work as well with some differences; some
+students have reported success with 20.04). So if your
 development environment was based on Windows, you should repeat the
 [setup for a Linux machine](https://docs.wpilib.org/en/latest/docs/zero-to-robot/step-2/wpilib-setup.html). After the installation verify that the
 tools are working by creating a simple application and compiling it, you
@@ -312,7 +313,10 @@ the [WPILib simulation instructions](https://docs.wpilib.org/en/latest/docs/soft
 
 Next, you must install Gazebo. This tutorial is based on Gazebo 9, so this
 should be your preferred version. Newer versions of Gazebo should work
-too, but your friendly author has not verified it. If you happen to be
+too, but your friendly author has not verified it. Some students have reported
+successful usage with Gazebo 11.
+
+If you happen to be
 a ROS user (outside the scope of this tutorial) and have ROS already
 installed, then you probably have Gazebo 9 installed as well, so you do
 not need to do anything. If you are installing Gazebo on a Linux
@@ -483,7 +487,22 @@ the simulation using the appropriate VSCode extension. However, that
 task would not support Gazebo simulation so you cannot use it here.
 You must use the scripts instead.
 
-When you run the script with your own projects, you should replace `simple_4wd`
+If the above step fails for you with  "No Toolchain Found for roboRio"
+message then you probably forgot to install all components of WPILib
+and/or FRC tools. If that happens, you can fix it by typing this:
+
+```
+cd $FRC_ROOT/frc_gazebo_2021/src/simple_4wd
+./gradlew installRoboRioToolchain
+cd -
+```
+
+After applying the fix, re-run the `frc_gaz_build_app script`.
+Do the above only if you get the error about the missing toolchain,
+otherwise skip that step.
+
+When you run the build script with your own projects,
+you should replace `simple_4wd`
 with the name of your project. The script will look for the project
 at two locations. First location is `$FRC_ROOT/projects`, which is where
 you should put your own projects. The second location is
