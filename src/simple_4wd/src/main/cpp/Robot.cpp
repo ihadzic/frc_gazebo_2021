@@ -44,8 +44,8 @@ class Robot : public frc::TimedRobot {
     // Drive with arcade style (use right stick)
     double joyY = m_stick.GetY();
     double joyX = m_stick.GetX();
-    m_robotDrive_front.ArcadeDrive(joyY, joyX);
-    m_robotDrive_back.ArcadeDrive(joyY, joyX);
+    m_robotDrive_front.ArcadeDrive(joyX, joyY);
+    m_robotDrive_back.ArcadeDrive(joyX, joyY);
   }
 
   void TestPeriodic() override {}
