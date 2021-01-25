@@ -17,6 +17,21 @@
       </inertial>
       <self_collide>0</self_collide>
       <kinematic>0</kinematic>
+      <sensor name='robotCamera' type='camera'>
+	<visualize>1</visualize>
+	<camera name='__default__'>
+          <horizontal_fov>1.5</horizontal_fov>
+          <image>
+            <width>1280</width>
+            <height>720</height>
+          </image>
+          <clip>
+            <near>0.1</near>
+            <far>100</far>
+          </clip>
+	</camera>
+	<pose frame=''>0.5 0 0.2 0 0 0</pose>
+      </sensor>
       <visual name='visual'>
         <pose frame=''>0 0 0 0 -0 0</pose>
         <geometry>
